@@ -14,24 +14,24 @@ export async function POST(req:Request){
     stopWhen:stepCountIs(5),
     system:"you help full assitent that generates codes spicielly fullstack apps , so gove the users codes that they can understand",
     tools:{
-      users: tool({
-        description:"Get the all users data from the local database, and answer every question about database/users-data",
-        inputSchema: z.object({
-          questionDatabaseUsers:z.string().describe("The questionDAtabaseUsers to get the weather for")
-        }),
-        execute:async({questionDatabaseUsers})=>{
-          const response=await fetch(`http://localhost:3000/api/users`,{
-            method:"GET",
-              headers:{ "Content-Type":"application/json"}
-          })
-          const data=await response.json()
-          // console.log(data)
-          // const temp=Math.round(Math.random() * (22+99)+77)
-          return {
-            usersData:data
-          }
-        }
-      }),
+      // users: tool({
+      //   description:"Get the all users data from the local database, and answer every question about database/users-data",
+      //   inputSchema: z.object({
+      //     questionDatabaseUsers:z.string().describe("The questionDAtabaseUsers to get the weather for")
+      //   }),
+      //   execute:async({questionDatabaseUsers})=>{
+      //     const response=await fetch(`http://localhost:3000/api/users`,{
+      //       method:"GET",
+      //         headers:{ "Content-Type":"application/json"}
+      //     })
+      //     const data=await response.json()
+      //     // console.log(data)
+      //     // const temp=Math.round(Math.random() * (22+99)+77)
+      //     return {
+      //       usersData:data
+      //     }
+      //   }
+      // }),
 
       movies:tool({
        description:"Get or search any movie on the api that users will ask you and answer waht ever they ask you to know about the movies ",
